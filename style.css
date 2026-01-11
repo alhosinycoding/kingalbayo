@@ -48,6 +48,12 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background: #388e3c; /* أخضر غامق */
+  transform: scale(1.05); /* تكبير الزر */
 }
 
 .examBtn {
@@ -67,7 +73,7 @@ button {
   top: 0;
   width: 250px;
   height: 100%;
-  background: var(--main); /* هنا يتم تغيير اللون في الشريط الجانبي */
+  background: linear-gradient(45deg, #4CAF50, #81C784); /* تدرج أخضر */
   transition: 0.3s;
   padding-top: 80px;
 }
@@ -81,6 +87,12 @@ button {
   padding: 15px;
   color: #fff;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px; /* إضافة حواف دائرية */
 }
 
 /* Sections */
@@ -109,11 +121,22 @@ button {
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   cursor: pointer;
   color: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* إضافة ظل مكثف */
 }
 
 .card i {
   font-size: 30px;
-  color: var(--main); /* هنا نغير اللون الأيقونات للون الأخضر */
+  color: var(--main); /* اللون الأخضر */
+  transition: color 0.3s ease;
+}
+
+.card i:hover {
+  color: #388e3c; /* تغيير اللون عند التمرير */
 }
 
 /* Toast */
@@ -175,9 +198,21 @@ button {
   background-color: #ff4d4d;
   color: #fff;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 #profile .logoutBtn:hover {
   background-color: #e60000;
+}
+
+/* Footer Links */
+footer a {
+  text-decoration: none;
+  color: #388e3c;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+footer a:hover {
+  color: #2c6e2d;
+  text-decoration: underline;
 }
