@@ -4,175 +4,60 @@
   <meta charset="UTF-8">
   <title>منصة الشهد</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ===== Navbar ===== -->
-<nav class="navbar">
-  <button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
-  <img src="https://i.postimg.cc/qBNWWK9h/file-00000000b6f0724699170c32f51055fb-(1).png" class="logo" alt="الشهد">
-  <button id="themeToggle"><i class="fa-solid fa-moon"></i></button>
-</nav>
-
-<!-- ===== Sidebar ===== -->
-<aside class="sidebar" id="sidebar">
-  <ul id="menuItems">
-    <li onclick="showSection('landing')">الرئيسية</li>
-    <li onclick="showSection('login')">تسجيل الدخول</li>
-    <li onclick="showSection('contact')">تواصل معنا</li>
-  </ul>
-</aside>
-
-<!-- Toast -->
-<div id="toast"></div>
-
-<main>
-
-<!-- ===== Landing ===== -->
-<section id="landing" class="section active">
-  <h1>لي اختر الشهد </h1>
-
-  <div class="cards">
-
-    <div class="card">
-      <i class="fa-solid fa-user-check"></i>
-      <h3>متابعة دائمة</h3>
-    </div>
-
-    <div class="card">
-      <i class="fa-solid fa-file-pen"></i>
-      <h3>اختبارات تفاعلية</h3>
-    </div>
-
-    <div class="card">
-      <i class="fa-solid fa-award"></i>
-      <h3>خبرة عالية</h3>
-    </div>
-
-    <div class="card" onclick="showSection('contact')">
-      <i class="fa-brands fa-whatsapp"></i>
-      <h3>تواصل معنا</h3>
-    </div>
-
-  </div>
-
-  <footer>
-  <p>صُنعت هذه المنصة بواسطة <strong>يحيى الحسيني</strong></p>
-  <p>المنصة ملك خاص للأستاذ <strong>محمد عبد العزيز</strong></p>
-  <p>للتواصل والاستفسار عبر واتساب: 
-    <a href="https://wa.me/201277723926" target="_blank">01277723926</a>
-  </p>
-  <p>© جميع الحقوق محفوظة</p>
-</footer>
-
-</section>
-
 <!-- ===== Login ===== -->
-<section id="login" class="section" style="max-width: 300px; margin: auto; font-family: Arial, sans-serif;">
-  <h2 style="text-align: center; margin-bottom: 20px;">تسجيل الدخول</h2>
-  
-  <input id="username" placeholder="اسم المستخدم" 
-         style="width: 100%; padding: 10px 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 12px; font-size: 16px; box-sizing: border-box;">
-  
-  <input id="password" type="password" placeholder="كلمة المرور" 
-         style="width: 100%; padding: 10px 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 12px; font-size: 16px; box-sizing: border-box;">
-  
-  <button onclick="login()" 
-          style="width: 100%; padding: 12px; border-radius: 12px; font-size: 16px; cursor: pointer;">
-    دخول
-  </button>
+<section id="login" class="view active">
+  <h1>منصة الشهد</h1>
+  <input id="username" placeholder="اسم المستخدم">
+  <input id="password" type="password" placeholder="كلمة المرور">
+  <button onclick="login()">تسجيل الدخول</button>
+  <p id="loginMsg"></p>
 </section>
 
+<!-- ===== Student Dashboard ===== -->
+<section id="student" class="view">
+  <header>
+    <h2>لوحة الطالب</h2>
+    <button onclick="logout()">خروج</button>
+  </header>
 
-<!-- ===== Lessons ===== -->
-<section id="lessons" class="section">
-  <h2>الحصص</h2>
-
-  <div class="cards" id="lessonsCards">
-    <div class="card" onclick="openLesson('hfBfKH2kM9Q')">
-      <i class="fa-solid fa-play"></i>
-      <h3>الحصة الأولى</h3>
-    </div>
-    <div class="card" onclick="openLesson('VIDEO_ID_2')">
-      <i class="fa-solid fa-play"></i>
-      <h3>الحصة الثانية</h3>
-    </div>
-  </div>
-
-  <div id="videoBox"></div>
-  <button onclick="backToLessons()" class="backBtn">العودة للحصص</button>
-</section>
-
-<!-- ===== Exams ===== -->
-<!-- ===== Exams ===== -->
-<section id="exams" class="section">
-  <h2>الاختبارات</h2>
-
-  <div class="cards">
-    <button class="examBtn" onclick="window.open('https://forms.office.com/r/hCUG2kFEFQ', '_blank')">
-      اختبار الحصة الأولى
-    </button>
-
-    <button class="examBtn" onclick="window.open('https://forms.office.com/r/KB85C8QUiP', '_blank')">
-      اختبار الحصة الثانية
-    </button>
-
-    <button class="examBtn" onclick="window.open('https://forms.office.com/r/KB85C8QUiP', '_blank')">
-      اختبار شامل
-    </button>
-  </div>
-</section>
-
-
-<!-- ===== Leaderboard ===== -->
-<section id="leaderboard" class="section">
-  <h2>لوحة الصدارة</h2>
-  <ol id="leaders"></ol>
-</section>
-
-<section id="profile" class="section">
-  <div class="cards" style="justify-content: center;">
+  <div class="grid">
     <div class="card">
-      <div id="profileData">
-        <!-- بيانات الحساب هتتحط هنا -->
-      </div>
-      <button onclick="logout()" class="logoutBtn">تسجيل الخروج</button>
+      <h3>الحصص</h3>
+      <div id="lessons"></div>
+    </div>
+
+    <div class="card">
+      <h3>الاختبارات</h3>
+      <div id="exams"></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Contact ===== -->
-<section id="contact" class="section">
-  <h2>تواصل معنا</h2>
-  <div class="social" style="display: flex; flex-direction: column; gap: 20px; font-family: Arial, sans-serif;">
-    
-    <a href="https://wa.me/201277723926" target="_blank" 
-       style="display: flex; align-items: center; gap: 10px; color: #25D366; font-weight: bold; font-size: 18px; text-decoration: none;">
-      <i class="fa-brands fa-whatsapp" style="font-size: 28px;"></i>
-      <span>صفحتنا على واتساب للدعم الفني</span>
-    </a>
-    
-    <a href="https://facebook.com" target="_blank" 
-       style="display: flex; align-items: center; gap: 10px; color: #1877F2; font-weight: bold; font-size: 18px; text-decoration: none;">
-      <i class="fa-brands fa-facebook" style="font-size: 28px;"></i>
-      <span>صفحتنا على فيسبوك</span>
-    </a>
+<!-- ===== Admin Dashboard ===== -->
+<section id="admin" class="view">
+  <header>
+    <h2>لوحة المشرف</h2>
+    <button onclick="logout()">خروج</button>
+  </header>
 
+  <div class="grid">
+    <div class="card">
+      <h3>الطلاب</h3>
+      <div id="students"></div>
+    </div>
+
+    <div class="card">
+      <h3>الإحصائيات</h3>
+      <div id="stats"></div>
+    </div>
   </div>
 </section>
 
-
-
-</main>
-
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
