@@ -1,7 +1,7 @@
 /*************************************************
  * CONFIG
  *************************************************/
-const API_URL = "PUT_YOUR_APPS_SCRIPT_URL";
+const API_URL = "https://script.google.com/macros/s/AKfycbxT9n-3RFCpc3B3MSBVLczybJZ1uT4Jvg9SCkDkfYGa8oQYXgC6kN6np1F8hxlNZBur/exec";
 
 /*************************************************
  * HELPERS
